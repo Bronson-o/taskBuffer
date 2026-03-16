@@ -120,6 +120,9 @@ size_t BufMoveSlow(CircularBuffer* pDest, CircularBuffer* pSource)
   return result;
 }
 
+//Недоліки BufMoveSlow - при копіюванні і записі кожного байту відбувається додаткова перевірка, кожна ітерація циклу викликає
+// 2 функції з параметрами, що в свою чергу витрачає багато ресурсів і часу(для 200 байт буде 400 викликів функцій)
+
 // напишите свой вариант функции перемещения данных
 size_t BufMoveFast(CircularBuffer* pDest, CircularBuffer* pSource)
 {
